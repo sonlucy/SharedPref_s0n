@@ -27,7 +27,7 @@ class ContextUtil {
         fun getAutoLogin(context: Context) : Boolean {
 
             val pref= context.getSharedPreferences(prefName, Context.MODE_PRIVATE)  //메모장 열고
-            return pref.getBoolean(AUTO_LOGIN, false) //메모장 안의 불린값 리턴, 자동로그인 누르지않은걸로(false) 기본값 설정
+            return pref.getBoolean(AUTO_LOGIN, false) //메모장 안의 불린값 리턴, 기본값은 자동로그인 누르지않은걸로(false) 설정
 
         }
     }
