@@ -11,6 +11,7 @@ class ContextUtil {
 
         private val AUTO_LOGIN = "AUTO_LOGIN"  //자동완성으로 오타실수 줄이기위해
 
+        //두번쨰인수: 뭐라고 저장할지 setter의 재료
         fun setAutoLogin(context:Context, autoLogin:Boolean) {
 
             val pref= context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
@@ -18,6 +19,15 @@ class ContextUtil {
             //어떤 값을 저장할지는 그때그때 넘겨받는 autoLogin에 들어있는 불린값이 저장되게할거임.
             //메모장의 저장버튼 같은 기능 -> apply()
 
+
+        }
+
+        //메모장 열기만 하면되니까 (유일한 인수)context: Context만 있음됨
+        //자동완성 유무 알려주기위해 -> Boolean으로 리턴
+        fun getAutoLogin(context: Context) : Boolean {
+
+            val pref= context.getSharedPreferences(prefName, Context.MODE_PRIVATE)  //메모장 열고
+            return pref.getBoolean(AUTO_LOGIN, false) //메모장 안의 불린값 리턴, 자동로그인 누르지않은걸로(false) 기본값 설정
 
         }
     }
